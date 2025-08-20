@@ -5,7 +5,7 @@
         error=[],
         statch=""
 
-    ){
+    ){ 
         super(message)
         this.statusCode=statusCode
         this.data=null
