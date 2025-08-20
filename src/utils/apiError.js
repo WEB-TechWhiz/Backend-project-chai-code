@@ -3,13 +3,13 @@
         statusCode,
         Message='something went wront',
         error=[],
-        statch=""
+        stack=""
 
     ){ 
-        super(message)
+        super(Message)
         this.statusCode=statusCode
         this.data=null
-        this.message=this.message
+        this.Message=this.Message
         this.success=false
         this.error=error
     }

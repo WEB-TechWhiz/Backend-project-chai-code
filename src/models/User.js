@@ -7,7 +7,7 @@ import mongoose from "mongoose";
  const userSchema= new Schema({
      
      Username:{
-      type:string,
+        type:String,
         require:true,
         unique:true,
         lowercase:true,
@@ -15,33 +15,33 @@ import mongoose from "mongoose";
         index:true
      },
       FullName:{
-        type:string,
+        type:String,
         require:true,
         trim:true,
         index:true
       },
 
       avatar:{
-        type:string,
+        type:String,
         require:true,
       },
       
       coverImage:{
-        type:string,
+        type:String,
       },
        watchHistory:{
            type:Schema.Types.ObjectId,
            ref:"video"
        },
       email:{
-       type:string,
+       type:String,
         require:true,
         unique:true,
         lowercase:true,
         trim:true,
     },
     password:{
-        type:string,
+        type:String,
         require:[true,"Password is required"]
     },
     refreshToken:{
@@ -51,7 +51,7 @@ import mongoose from "mongoose";
 
  userSchema.pre("save",async function (next){
    if(!this.isModified("password")) return next();   
-  this.password=bcrypt.hash(this.password,10)
+  this.password= await bcrypt.hash(this.password,10)
       next()
  })
 

@@ -15,6 +15,7 @@ import { response } from "express";
             resource_type:"auto"
         })
         console.log("file is uploded on cloudinary",response.url);
+        fs.unlinkSync(localFilePath)
         return response;
     } catch (error) {
         fs.unlinkSync(localFilePath)//remove the localy save temp file as the operation got faild
